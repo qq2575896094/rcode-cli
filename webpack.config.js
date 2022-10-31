@@ -79,6 +79,19 @@ module.exports = {
                     { loader: 'postcss-loader' },
                 ],
             },
+            {
+                test: /\.(woff|woff2|otf|ttf|eot|svg)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            publicPath: './',
+                            limit: 8 * 1024,
+                            name: 'fonts/[name].[ext]',
+                        },
+                    },
+                ],
+            },
         ]
     },
     optimization: {
