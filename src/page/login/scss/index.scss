@@ -115,6 +115,8 @@
 
           &.overlay-left {
             transform: translateX(-20%);
+            background: url("../images/search.jpeg") no-repeat 50% 50%;
+            background-clip: border-box;
           }
 
           &.overlay-right {

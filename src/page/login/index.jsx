@@ -120,11 +120,10 @@ function Login() {
                 <div className="container-overlay">
                     <div className="overlay">
                         <div className="overlay-panel overlay-left">
-                            <CustomIcon type="icon-wancheng" />
-                            <button type="button" className="toggle-btn" onClick={signIn}>去 注 册</button>
+                            <button type="button" className="toggle-btn hidden" onClick={signIn}>去 注 册</button>
                         </div>
                         <div className="overlay-panel overlay-right">
-                            <button type="button" className="toggle-btn" onClick={signUp}>去 登 录</button>
+                            <button type="button" className="toggle-btn hidden" onClick={signUp}>去 登 录</button>
                         </div>
                     </div>
                 </div>

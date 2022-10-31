@@ -38,6 +38,7 @@ module.exports = {
         publicPath,
         filename: 'scripts/[name]-[contenthash:8].js',
         path: isProd ? pathConf.DIST_PATH : pathConf.TMP_PATH,
+        // assetModuleFilename: "images/[name].[hash:8][ext]",
         clean: true,
     },
     module: {
@@ -92,9 +93,26 @@ module.exports = {
                     },
                 ],
             },
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            mimetype: 'image/png',
+                            outputPath: 'images/',
+                            esModule: false,
+                            limit: 8 * 1024,
+                            name: '[name]-[hash:8].[ext]',
+                        },
+                    },
+                ],
+                type: 'javascript/auto'
+            },
         ]
     },
     optimization: {
+        minimize: isProd,
         minimizer: [
             new CssMinimizerPlugin({
                 minimizerOptions: {
@@ -131,14 +149,14 @@ module.exports = {
         }),
         new CopyWebpackPlugin({
             patterns: [
-                // {
-                //     from: pathConf.DOC_FROM_PATH,
-                //     to: pathConf.DOC_TO_PATH,
-                // },
                 {
-                    from: pathConf.IMAGE_FROM_PATH,
-                    to: pathConf.IMAGE_TO_PATH,
+                    from: pathConf.DOC_FROM_PATH,
+                    to: pathConf.DOC_TO_PATH,
                 },
+                // {
+                //     from: pathConf.IMAGE_FROM_PATH,
+                //     to: pathConf.IMAGE_TO_PATH,
+                // },
             ],
         }),
         new CleanWebpackPlugin({
