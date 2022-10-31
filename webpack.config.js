@@ -28,7 +28,7 @@ module.exports = {
     devtool: isProd ? undefined : 'source-map',
     entry: pathConf.ENTRY_PATH,
     output: {
-        // publicPath: './',
+        publicPath: './',
         filename: 'scripts/[name]-[contenthash:8].js',
         path: isProd ? pathConf.DIST_PATH : pathConf.TMP_PATH,
         clean: true,
@@ -51,6 +51,25 @@ module.exports = {
                     { loader: 'css-loader' },
                     { loader: 'postcss-loader' },
                     { loader: 'sass-loader' },
+                ],
+            },
+            {
+                test: /\.less$/,
+                include: pathConf.APP_PATH,
+                use: [
+                    styleLoader(isProd),
+                    { loader: 'css-loader' },
+                    { loader: 'postcss-loader' },
+                    { loader: 'less-loader' },
+                ],
+            },
+            {
+                test: /\.css$/,
+                include: pathConf.APP_PATH,
+                use: [
+                    styleLoader(isProd),
+                    { loader: 'css-loader' },
+                    { loader: 'postcss-loader' },
                 ],
             },
         ]
