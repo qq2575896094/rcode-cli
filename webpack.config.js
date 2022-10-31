@@ -1,17 +1,24 @@
 const ip = require('ip')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pathConf = require('./path-conf')
 
 const isProd = process.env.NODE_ENV === 'production'
 
+const publicPath = isProd ? './' : '/'
+
 const devServer = {
     host: ip.address(),
     port: 8899,
     open: true,
     hot: true,
+    static: {
+        directory: pathConf.TMP_PATH,
+    },
+    historyApiFallback: true,
     compress: true,
     proxy: {
         '/users': 'http://localhost:8080',
@@ -19,7 +26,7 @@ const devServer = {
 }
 
 const styleLoader = (isProduction) => (isProduction
-    ? { loader: MiniCssExtractPlugin.loader }
+    ? { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }
     : { loader: 'style-loader' })
 
 module.exports = {
@@ -28,7 +35,7 @@ module.exports = {
     devtool: isProd ? undefined : 'source-map',
     entry: pathConf.ENTRY_PATH,
     output: {
-        publicPath: './',
+        publicPath,
         filename: 'scripts/[name]-[contenthash:8].js',
         path: isProd ? pathConf.DIST_PATH : pathConf.TMP_PATH,
         clean: true,
@@ -72,6 +79,18 @@ module.exports = {
                     { loader: 'postcss-loader' },
                 ],
             },
+        ]
+    },
+    optimization: {
+        minimizer: [
+            new CssMinimizerPlugin({
+                minimizerOptions: {
+                    preset: [
+                        'default',
+                        { discardComments: { removeAll: true } }
+                    ]
+                },
+            })
         ]
     },
     plugins: [
