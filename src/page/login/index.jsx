@@ -2,9 +2,8 @@ import React from 'react'
 import {
     Form, Input, Radio, Button,
 } from 'antd'
-import { UserOutlined, LockOutlined } from '@ant-design/icons'
 import classNames from 'classnames'
-import particlesJs from '../../plugins/particles.js'
+import particlesJs from '../../plugins/particles'
 import particlesJson from '../../plugins/particlesjs-config'
 import OkHttp from '../../okHttp'
 import CustomIcon from '../../components/custom-icon'
@@ -59,7 +58,7 @@ function Login() {
                             rules={[{ required: true, message: 'Please input your username!' }]}
                         >
                             <Input
-                                prefix={<UserOutlined className="site-form-item-icon" />}
+                                prefix={<CustomIcon type="icon-yonghuming" />}
                                 placeholder="Username"
                             />
                         </Form.Item>
@@ -68,7 +67,7 @@ function Login() {
                             rules={[{ required: true, message: 'Please input your password!' }]}
                         >
                             <Input.Password
-                                prefix={<LockOutlined className="site-form-item-icon" />}
+                                prefix={<CustomIcon type="icon-password" />}
                                 placeholder="Password"
                             />
                         </Form.Item>
@@ -93,7 +92,7 @@ function Login() {
                             rules={[{ required: true, message: 'Please input your username!' }]}
                         >
                             <Input
-                                prefix={<UserOutlined className="site-form-item-icon" />}
+                                prefix={<CustomIcon type="icon-yonghuming" />}
                                 placeholder="Username"
                             />
                         </Form.Item>
@@ -102,7 +101,7 @@ function Login() {
                             rules={[{ required: true, message: 'Please input your password!' }]}
                         >
                             <Input.Password
-                                prefix={<LockOutlined className="site-form-item-icon" />}
+                                prefix={<CustomIcon type="icon-password" />}
                                 placeholder="Password"
                             />
                         </Form.Item>

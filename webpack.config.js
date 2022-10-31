@@ -45,6 +45,13 @@ module.exports = {
         rules: [
             {
                 test: /\.jsx?$/,
+                enforce: 'pre',
+                use: [{ loader: 'eslint-loader' }],
+                include: pathConf.APP_PATH,
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.jsx?$/,
                 use: [
                     { loader: 'babel-loader' },
                 ],
@@ -152,11 +159,7 @@ module.exports = {
                 {
                     from: pathConf.DOC_FROM_PATH,
                     to: pathConf.DOC_TO_PATH,
-                },
-                // {
-                //     from: pathConf.IMAGE_FROM_PATH,
-                //     to: pathConf.IMAGE_TO_PATH,
-                // },
+                }
             ],
         }),
         new CleanWebpackPlugin({
