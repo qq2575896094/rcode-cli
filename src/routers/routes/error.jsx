@@ -3,7 +3,7 @@ import Helper from '@/helper'
 
 const errorRoute = [
     {
-        path: '/404',
+        path: '/app/404',
         element: Helper.lazyLoad(React.lazy(() => import('@components/error-404'))),
         meta: {
             requireAuth: false,
@@ -12,7 +12,7 @@ const errorRoute = [
         },
     },
     {
-        path: '/500',
+        path: '/app/500',
         element: Helper.lazyLoad(React.lazy(() => import('@components/error-500'))),
         meta: {
             requireAuth: false,
