@@ -9,6 +9,7 @@ const noop = () => {}
 
 function UserDropdown({
     username,
+    avatar,
     list,
     onClick,
 }) {
@@ -29,6 +30,7 @@ function UserDropdown({
                 <span>
                     <span className="username">{username}</span>
                     <Avatar
+                        src={avatar}
                         style={{ backgroundColor: '#87d068' }}
                         icon={<CustomIcon type="icon-dengluren" />}
                         alt={username}
@@ -41,12 +43,14 @@ function UserDropdown({
 
 UserDropdown.defaultProps = {
     username: '',
+    avatar: '',
     list: [],
     onClick: noop,
 }
 
 UserDropdown.propTypes = {
     username: PropTypes.string,
+    avatar: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.shape({
         key: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,

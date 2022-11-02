@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import { Layout } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import UserDropdown from '@components/user-dropdown'
@@ -12,6 +13,8 @@ function Header({
     collapsed,
     setCollapsed,
 }) {
+    const userInfo = useSelector((state) => state.userInfo)
+
     const dropdownList = [
         {
             label: '个人信息',
@@ -49,7 +52,8 @@ function Header({
             <div className="header-menu-wrapper" />
             <div className="header-action-wrapper">
                 <UserDropdown
-                    username="雨田"
+                    username={userInfo.username}
+                    avatar={userInfo.avatar}
                     list={dropdownList}
                     onClick={userDropdownClick}
                 />

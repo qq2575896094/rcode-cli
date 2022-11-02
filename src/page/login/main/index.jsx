@@ -1,25 +1,31 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {
     Form, Input, Radio, Button,
 } from 'antd'
 import classNames from 'classnames'
-import particlesJs from '../../plugins/particles'
-import particlesJson from '../../plugins/particlesjs-config'
-import OkHttp from '../../okHttp'
-import CustomIcon from '../../components/custom-icon'
+import CustomIcon from '@components/custom-icon'
+import particlesJs from '@/plugins/particles'
+import particlesJson from '@/plugins/particlesjs-config'
+
+import { loginAction } from '@page/login/api'
 
 import './scss/index.scss'
 
 function Login() {
     const [isSignIn, setIsSignIn] = React.useState(true)
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     const signIn = () => {
         setIsSignIn(false)
     }
 
-    const handleSignIn = async (values) => {
-        const response = await OkHttp.post('/users/login', values)
-        console.log(response, 'response')
+    const handleSignIn = async (data) => {
+        dispatch(loginAction(data)).then(({ payload: response }) => {
+            if (response.statusCode === 200) navigate('/app')
+        })
     }
 
     const signUp = () => {

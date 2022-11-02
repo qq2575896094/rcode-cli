@@ -1,7 +1,7 @@
 const ip = require('ip')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const pathConf = require('./path-conf')
@@ -114,9 +114,9 @@ module.exports = {
                         },
                     },
                 ],
-                type: 'javascript/auto'
+                type: 'javascript/auto',
             },
-        ]
+        ],
     },
     optimization: {
         minimize: isProd,
@@ -125,11 +125,11 @@ module.exports = {
                 minimizerOptions: {
                     preset: [
                         'default',
-                        { discardComments: { removeAll: true } }
-                    ]
+                        { discardComments: { removeAll: true } },
+                    ],
                 },
-            })
-        ]
+            }),
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -159,7 +159,7 @@ module.exports = {
                 {
                     from: pathConf.DOC_FROM_PATH,
                     to: pathConf.DOC_TO_PATH,
-                }
+                },
             ],
         }),
         new CleanWebpackPlugin({

@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import Login from '@page/login'
+import Login from '@page/login/main'
 import App from '@components/app'
 
 // 获取routes下面的所有的路由

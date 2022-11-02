@@ -67,6 +67,7 @@
         "no-unused-vars": 2,
         "no-useless-catch": 2,
         "no-useless-escape": 2,
+        "no-return-await": "off",
         "no-with": 2,
         "require-atomic-updates": 2,
         "require-yield": 2,
