@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 
-import Login from '@page/login/main'
+import Login from '@pages/login/main'
 import App from '@components/app'
 
 // 获取routes下面的所有的路由
@@ -22,7 +22,7 @@ const rootRouters = [
     },
     {
         path: '/login',
-        element: <Login />, // Helper.lazyLoad(React.lazy(() => import('@page/login')))
+        element: <Login />, // Helper.lazyLoad(React.lazy(() => import('@pages/login')))
     },
     {
         path: '/app',

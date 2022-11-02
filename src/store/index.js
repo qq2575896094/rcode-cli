@@ -24,7 +24,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const importAllReducer = () => {
     const reducers = {}
-    const requireContext = require.context('@page', true, /([a-zA-Z]+)\/reducer\/index\.js$/)
+    const requireContext = require.context('@pages', true, /([a-zA-Z]+)\/reducer\/index\.js$/)
     requireContext.keys().forEach((key) => {
         const context = requireContext(key)
 

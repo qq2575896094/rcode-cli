@@ -14,7 +14,7 @@ const DOC_TO_PATH = path.join(DIST_PATH, 'doc')
 const IMAGE_FROM_PATH = path.join(APP_PATH, 'images')
 const IMAGE_TO_PATH = path.join(DIST_PATH, 'images')
 
-const PAGE_BASE_PATH = path.join(APP_PATH, 'page')
+const PAGE_BASE_PATH = path.join(APP_PATH, 'pages')
 const COMPONENT_PATH = path.join(APP_PATH, 'components')
 const FONT_PATH = path.join(APP_PATH, 'css/fonts')
 

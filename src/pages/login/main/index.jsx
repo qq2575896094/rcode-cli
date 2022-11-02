@@ -9,7 +9,7 @@ import CustomIcon from '@components/custom-icon'
 import particlesJs from '@/plugins/particles'
 import particlesJson from '@/plugins/particlesjs-config'
 
-import { loginAction } from '@page/login/api'
+import { loginAction } from '@pages/login/api'
 
 import './scss/index.scss'
 

@@ -172,7 +172,7 @@ module.exports = {
     resolve: {
         alias: {
             '@': pathConf.APP_PATH,
-            '@page': pathConf.PAGE_BASE_PATH,
+            '@pages': pathConf.PAGE_BASE_PATH,
             '@components': pathConf.COMPONENT_PATH,
             '@fonts': pathConf.FONT_PATH,
         },

@@ -7,7 +7,7 @@ import Slider from '@components/slider'
 import { useDispatch } from 'react-redux'
 
 import './scss/index.scss'
-import { getUserInfoAction } from '@page/login/api'
+import { getUserInfoAction } from '@/pages/login/api'
 
 function App() {
     const dispatch = useDispatch()
