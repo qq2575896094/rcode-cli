@@ -25,7 +25,7 @@ function Root() {
         i18next.changeLanguage(lng).then(() => {
             // eslint-disable-next-line global-require,import/no-dynamic-require
             setAntdLanguageData(require(`antd/es/locale/${lng.replace('-', '_')}.js`).default)
-            if (language) dispatch(globalAction.updateLanguage(lng))
+            if (!language) dispatch(globalAction.updateLanguage(lng))
         })
     }
 

@@ -1,48 +1,40 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { useSelector, useDispatch } from 'react-redux'
 import { Dropdown, Menu } from 'antd'
 import CustomIcon from '@components/custom-icon'
+import { globalAction } from '@/reducer'
+import { LANGUAGES } from '@/language/loader'
+
+import './scss/index.scss'
 
 const languageIconMap = {
     'en-US': 'icon-zhongyingwenyingwen',
     'zh-CN': 'icon-a-zhongyingwenzhongwen'
 }
 
-function AppLanguage({
-    language,
-    languages
-}) {
-    const changeLanguage = (val) => {
-        console.log(val)
-    }
+function AppLanguage() {
+    const language = useSelector((state) => state.global.language)
+    const dispatch = useDispatch()
+
+    const changeLanguage = ({ key }) => dispatch(globalAction.updateLanguage(key))
 
     const menuItems = React.useMemo(() => {
-        const items = languages.map(({ name, value }) => ({
+        const items = LANGUAGES.map(({ name, value }) => ({
             label: name,
             key: value
         }))
-        return <Menu items={items} onClick={changeLanguage} />
-    }, [JSON.stringify(language)])
+        return <Menu items={items} onClick={changeLanguage} selectedKeys={[language]} />
+    }, [language])
 
     return (
-        <div className="user-dropdown">
-            <Dropdown overlay={menuItems}>
-                <CustomIcon type={languageIconMap[language]} />
-            </Dropdown>
-        </div>
+        <Dropdown overlay={menuItems} placement="bottomCenter">
+            <div className="language-dropdown">
+                {
+                    language && (<CustomIcon type={languageIconMap[language]} />)
+                }
+            </div>
+        </Dropdown>
     )
-}
-
-AppLanguage.defaultProps = {
-    language: 'zh-CN'
-}
-
-AppLanguage.propTypes = {
-    language: PropTypes.string,
-    languages: PropTypes.arrayOf(PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        value: PropTypes.string.isRequired
-    })).isRequired
 }
 
 export default AppLanguage

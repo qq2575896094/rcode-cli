@@ -26,7 +26,7 @@ function UserDropdown({
 
     return (
         <div className="user-dropdown" role="presentation">
-            <Dropdown overlay={menuItems}>
+            <Dropdown overlay={menuItems} placement="bottomRight">
                 <span>
                     <span className="username">{username}</span>
                     <Avatar
