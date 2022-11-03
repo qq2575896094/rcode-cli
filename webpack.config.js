@@ -4,6 +4,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const StylelintWebpackPlugin = require('stylelint-webpack-plugin')
+
 const pathConf = require('./path-conf')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -63,7 +65,15 @@ module.exports = {
                 include: pathConf.APP_PATH,
                 use: [
                     styleLoader(isProd),
-                    { loader: 'css-loader' },
+                    {
+                        loader: 'css-loader',
+                        // options: {
+                        //     modules: {
+                        //         mode: 'local',
+                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //     },
+                        // },
+                    },
                     { loader: 'postcss-loader' },
                     { loader: 'sass-loader' },
                 ],
@@ -73,7 +83,15 @@ module.exports = {
                 include: pathConf.APP_PATH,
                 use: [
                     styleLoader(isProd),
-                    { loader: 'css-loader' },
+                    {
+                        loader: 'css-loader',
+                        // options: {
+                        //     modules: {
+                        //         mode: 'local',
+                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //     },
+                        // },
+                    },
                     { loader: 'postcss-loader' },
                     { loader: 'less-loader' },
                 ],
@@ -83,7 +101,15 @@ module.exports = {
                 include: pathConf.APP_PATH,
                 use: [
                     styleLoader(isProd),
-                    { loader: 'css-loader' },
+                    {
+                        loader: 'css-loader',
+                        // options: {
+                        //     modules: {
+                        //         mode: 'local',
+                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //     },
+                        // },
+                    },
                     { loader: 'postcss-loader' },
                 ],
             },
@@ -167,6 +193,10 @@ module.exports = {
                 '**/*',
                 '!doc',
             ],
+        }),
+        new StylelintWebpackPlugin({
+            files: 'src/**/*.scss',
+            fix: true,
         }),
     ],
     resolve: {

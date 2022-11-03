@@ -1,16 +1,16 @@
 .system-header {
+  margin: 0 0 1.25rem;
   font-weight: 400;
-  margin: 0 0 1.25rem 0;
   text-align: center;
 }
 
 .login-page {
   position: relative;
-  width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
 
   #particles {
     position: absolute;
@@ -22,28 +22,28 @@
   }
 
   .container {
-    background-color: var(--white);
-    border-radius: var(--button-radius);
-    box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
-    0 0.7rem 0.7rem rgba(0, 0, 0, 0.22);
-    height: var(--max-height);
-    max-width: var(--max-width);
-    overflow: hidden;
     position: relative;
     width: 100%;
+    max-width: var(--max-width);
+    height: var(--max-height);
+    overflow: hidden;
+    background-color: var(--white);
+    border-radius: var(--button-radius);
+    box-shadow: 0 0.9rem 1.7rem #bfbfbf,
+    0 0.7rem 0.7rem #c6c6c6;
 
     .container-form {
-      height: 100%;
       position: absolute;
       top: 0;
+      height: 100%;
       transition: all 0.6s ease-in-out;
 
       .ant-form {
         display: flex;
-        justify-content: center;
         flex-direction: column;
-        padding: 0 3rem !important;
+        justify-content: center;
         height: 100%;
+        padding: 0 3rem !important;
 
         .user-type-form-item {
           margin-bottom: 12px;
@@ -65,58 +65,58 @@
 
       &.container-signup {
         left: 0;
-        width: 50%;
         z-index: 5;
+        width: 50%;
       }
 
       &.container-signin {
         left: 0;
-        opacity: 0;
-        width: 50%;
         z-index: 4;
+        width: 50%;
+        opacity: 0;
       }
     }
 
     .container-overlay {
-      height: 100%;
-      left: 50%;
-      overflow: hidden;
       position: absolute;
       top: 0;
-      transition: transform 0.6s ease-in-out;
-      width: 50%;
+      left: 50%;
       z-index: 100;
+      width: 50%;
+      height: 100%;
+      overflow: hidden;
+      transition: transform 0.6s ease-in-out;
 
       .overlay {
-        background-color: rgba(255, 255, 255, 0.25);
+        position: relative;
+        left: -100%;
+        width: 200%;
+        height: 100%;
+        background-color: #fff;
+        background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center;
-        background-repeat: no-repeat;
         background-size: cover;
-        height: 100%;
-        left: -100%;
-        position: relative;
-        transform: translateX(0);
         transition: transform 0.6s ease-in-out;
-        width: 200%;
+        transform: translateX(0);
 
         .overlay-panel {
-          align-items: center;
+          position: absolute;
+          top: 0;
           display: flex;
           flex-direction: column;
-          height: 100%;
+          align-items: center;
           justify-content: center;
-          position: absolute;
-          text-align: center;
-          top: 0;
-          transform: translateX(0);
-          transition: transform 0.6s ease-in-out;
           width: 50%;
+          height: 100%;
+          text-align: center;
+          transition: transform 0.6s ease-in-out;
+          transform: translateX(0);
 
           &.overlay-left {
-            transform: translateX(-20%);
             background: url("../images/search.jpeg") no-repeat 50% 50%;
             background-clip: border-box;
+            transform: translateX(-20%);
           }
 
           &.overlay-right {
@@ -125,17 +125,17 @@
           }
 
           .toggle-btn {
-            background-color: var(--blue);
-            background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
-            border-radius: 20px;
-            border: 0.2px solid var(--blue-r);
-            color: var(--white);
-            cursor: pointer;
+            padding: 0.9rem 4rem;
             font-size: 0.8rem;
             font-weight: bold;
-            letter-spacing: 0.1rem;
-            padding: 0.9rem 4rem;
+            color: var(--white);
             text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            background-color: var(--blue);
+            background-image: linear-gradient(90deg, var(--blue) 0%, var(--lightblue) 74%);
+            border: 0.2px solid var(--blue-r);
+            border-radius: 20px;
             transition: transform 80ms ease-in;
           }
         }
@@ -144,16 +144,15 @@
 
     &.right-panel-active {
       .container-signup {
-        transform: translateX(100%);
         opacity: 0;
+        transform: translateX(100%);
       }
 
       .container-signin {
-        -webkit-animation: show 0.6s;
-        animation: show 0.6s;
+        z-index: 8;
         opacity: 1;
         transform: translateX(100%);
-        z-index: 8;
+        animation: show 0.6s;
       }
 
       .container-overlay {
@@ -175,30 +174,30 @@
   }
 }
 
-@-webkit-keyframes show {
+@keyframes show {
   0%,
   49.99% {
-    opacity: 0;
     z-index: 4;
+    opacity: 0;
   }
 
   50%,
   100% {
-    opacity: 1;
     z-index: 8;
+    opacity: 1;
   }
 }
 
 @keyframes show {
   0%,
   49.99% {
-    opacity: 0;
     z-index: 4;
+    opacity: 0;
   }
 
   50%,
   100% {
-    opacity: 1;
     z-index: 8;
+    opacity: 1;
   }
 }

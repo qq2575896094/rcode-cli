@@ -1,9 +1,9 @@
 .app-header {
   display: flex;
   align-items: center;
-  background: #fff !important;
   padding: 0 16px !important;
   font-size: 18px;
+  background: #fff !important;
 
   .slider-collapse-btn {
     .anticon {
@@ -12,8 +12,8 @@
   }
 
   .header-menu-wrapper {
-    margin: 0 16px;
     flex: 1;
+    margin: 0 16px;
   }
 
   .header-action-wrapper {

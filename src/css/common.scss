@@ -13,30 +13,30 @@
   --max-width: 758px;
   --max-height: 420px;
 
-  font-size: 16px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
   Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
 }
 
 html,body {
-  margin: 0;
-  padding: 0;
   width: 100vw;
   height: 100vh;
+  padding: 0;
+  margin: 0;
   color: #4a62e7;
   background: #e8e8e8;
 }
 
 body {
+  display: grid;
+  place-items: center;
   align-items: center;
+  height: 100vh;
   background-color: var(--white);
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
-  display: grid;
-  height: 100vh;
-  place-items: center;
 }
 
 #root, .ant-layout {
