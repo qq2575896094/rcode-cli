@@ -1,4 +1,5 @@
 const ip = require('ip')
+const Webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
@@ -30,6 +31,10 @@ const devServer = {
 const styleLoader = (isProduction) => (isProduction
     ? { loader: MiniCssExtractPlugin.loader, options: { publicPath: '../' } }
     : { loader: 'style-loader' })
+
+const plugins = isProd
+    ? []
+    : [new Webpack.HotModuleReplacementPlugin()]
 
 module.exports = {
     mode: isProd ? 'production' : 'development',
@@ -70,7 +75,7 @@ module.exports = {
                         // options: {
                         //     modules: {
                         //         mode: 'local',
-                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //         localIdentName: '[path]-[name]-[hash:base64:5]',
                         //     },
                         // },
                     },
@@ -88,7 +93,7 @@ module.exports = {
                         // options: {
                         //     modules: {
                         //         mode: 'local',
-                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //         localIdentName: '[path]-[name]-[hash:base64:5]',
                         //     },
                         // },
                     },
@@ -106,7 +111,7 @@ module.exports = {
                         // options: {
                         //     modules: {
                         //         mode: 'local',
-                        //         localIdentName: '[name]_[local]_[hash:base64:5]',
+                        //         localIdentName: '[path]-[name]-[hash:base64:5]',
                         //     },
                         // },
                     },
@@ -157,7 +162,7 @@ module.exports = {
             }),
         ],
     },
-    plugins: [
+    plugins: plugins.concat([
         new HtmlWebpackPlugin({
             title: 'rcode cli',
             filename: 'index.html',
@@ -198,7 +203,7 @@ module.exports = {
             files: 'src/**/*.scss',
             fix: true,
         }),
-    ],
+    ]),
     resolve: {
         alias: {
             '@': pathConf.APP_PATH,

@@ -28,6 +28,9 @@
     ],
     "block-opening-brace-space-before": "always",
     "property-no-unknown": null,
+    "selector-pseudo-class-no-unknown": [true, {
+      "ignorePseudoClasses": ["global"]
+    }],
     "no-empty-source": null,
     "declaration-block-trailing-semicolon": "always",
     "selector-class-pattern": null,

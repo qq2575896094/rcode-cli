@@ -5,7 +5,7 @@ import './scss/index.scss'
 
 function Footer() {
     return (
-        <Layout.Footer className="app-header">footer</Layout.Footer>
+        <Layout.Footer className="app-footer">footer</Layout.Footer>
     )
 }
 

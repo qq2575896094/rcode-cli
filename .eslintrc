@@ -17,6 +17,8 @@
     "rules": {
         "semi": ["error", "never"],
         "no-console": "off",
+        "comma-dangle": "off",
+        "max-len": ["error", { "code": 120 }],
         "constructor-super": 2,
         "for-direction": 2,
         "getter-return": 2,
@@ -68,6 +70,7 @@
         "no-useless-catch": 2,
         "no-useless-escape": 2,
         "no-return-await": "off",
+        "space-before-blocks": "off",
         "no-with": 2,
         "require-atomic-updates": 2,
         "require-yield": 2,
@@ -85,6 +88,7 @@
         "react/jsx-indent": ["error", 4],
         "react/jsx-indent-props": ["error", 4],
         "react/react-in-jsx-scope": "off",
+        "react/no-unknown-property": ["error", { "ignore": ["styleName"] }],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     },
     "settings": {

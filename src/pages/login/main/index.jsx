@@ -2,8 +2,9 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import {
-    Form, Input, Radio, Button,
+    Form, Input, Radio, Button
 } from 'antd'
+import { useTranslation } from 'react-i18next'
 import classNames from 'classnames'
 import CustomIcon from '@components/custom-icon'
 import particlesJs from '@/plugins/particles'
@@ -17,6 +18,7 @@ function Login() {
     const [isSignIn, setIsSignIn] = React.useState(true)
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const { t } = useTranslation()
 
     const signIn = () => {
         setIsSignIn(false)
@@ -118,7 +120,7 @@ function Login() {
                             </Radio.Group>
                         </Form.Item>
                         <Form.Item>
-                            <Button type="primary" htmlType="submit" className="form-button">登 录</Button>
+                            <Button type="primary" htmlType="submit" className="form-button">{t('login.login')}</Button>
                         </Form.Item>
                     </Form>
                 </div>

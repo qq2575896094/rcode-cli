@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Layout } from 'antd'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons'
 import UserDropdown from '@components/user-dropdown'
+import AppLanguage from '@components/app-language'
 
 import './scss/index.scss'
 
@@ -51,6 +52,7 @@ function Header({
             </div>
             <div className="header-menu-wrapper" />
             <div className="header-action-wrapper">
+                <AppLanguage />
                 <UserDropdown
                     username={userInfo.username}
                     avatar={userInfo.avatar}
